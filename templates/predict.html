@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result</title>
+    <style>
+        body {
+            background-image: url("{{ url_for('static', path='/images/background3.jpg') }}");
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            background-color: #fff8e5;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            color: #ff5733;
+            font-size: 48px;
+            margin-top: 50px;
+            margin-bottom: 20px;
+        }
+        p {
+            color: #2f2f2f;
+            font-size: 24px;
+            margin: 20px;
+        }
+        .predicted-class {
+            color: #ff5733;
+            font-weight: bold;
+        }
+        .confidence {
+            color: #34bf49;
+            font-weight: bold;
+        }
+        .description {
+            color: #555555;
+            font-size: 20px;
+            margin: 20px;
+            text-align: justify;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            max-width: 800px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>Result</h1>
+            <p>Predicted class: <span class="predicted-class">{{ predicted_class }}</span></p>
+            <p>Confidence: <span class="confidence">{{ confidence }}</span></p>
+            <div class="description">
+                {% if predicted_class == 'Potato Early Blight' %}
+                <p style="color: #2f2f2f;">Potato Early Blight is a fungal disease that primarily affects the leaves of potato plants. It is caused by the fungus Alternaria solani, which can survive in soil and infected plant debris for up to two years. Early Blight typically appears as brown or black circular lesions with concentric rings that develop on the lower leaves of the potato plant. As the disease progresses, the lesions may spread to the upper leaves and stems, causing defoliation and reducing the yield of the potato crop. Early Blight is favored by warm, humid weather conditions and can be managed through cultural practices such as crop rotation, removal of infected plant debris, and application of fungicides.</p>
+                {% elif predicted_class == 'Potato Late Blight' %}
+                <p style="color: #2f2f2f;">Potato late blight is a destructive disease caused by a water mold pathogen called Phytophthora infestans. It affects the leaves, stems, and tubers of potato plants and can cause significant crop loss. Symptoms include dark spots on leaves, a white mold on the undersides of leaves, and a soft rot of tubers. The disease is highly contagious and can spread quickly under favorable conditions, such as cool, wet weather. Control measures include the use of resistant potato varieties, fungicides, and cultural practices such as crop rotation and proper plant spacing.</p>
+                {% elif predicted_class == 'Potato Healthy' %}
+                <p style="color: #2f2f2f;">Potato healthiness depends on the variety and the way it is prepared. Potatoes are a good source of complex carbohydrates, fiber, vitamin C, potassium, and other nutrients. However, potatoes can also be high in calories and glycemic index, especially when prepared with added fats and salt. To maximize their health benefits, it's recommended to eat potatoes in moderation, prepare them with healthy cooking methods such as boiling, baking or steaming, and avoid toppings and dressings that are high in calories and sodium. Additionally, choosing nutrient-dense varieties like sweet potatoes and purple potatoes can provide additional health benefits.</p>
+                {% elif predicted_class == 'Bell Pepper Bacterial spot' %}
+                <p style="color: #2f2f2f;">Bell pepper bacterial spot is a plant disease caused by the bacterium Xanthomonas campestris. It affects the leaves, stems, and fruit of bell pepper plants, causing small, dark, water-soaked lesions that can expand and coalesce, leading to defoliation and fruit drop. The disease is spread through contaminated seeds, plant debris, and splashing water. Warm, humid weather with frequent rainfall or irrigation can create ideal conditions for bacterial spot to develop. Control measures include the use of disease-free seeds, crop rotation, removal of infected plant debris, and regular applications of copper-based fungicides. Good sanitation practices, such as avoiding overhead irrigation and handling plants with care, can also help prevent the spread of the disease.</p>
+                {% elif predicted_class == 'Bell Pepper Healthy' %}
+                <p style="color: #2f2f2f;">Bell peppers are a healthy vegetable that is low in calories and high in nutrients. They are an excellent source of vitamin C, vitamin A, potassium, and fiber. Bell peppers also contain antioxidants that can help protect against cellular damage and reduce the risk of chronic diseases such as cancer and heart disease. They are versatile and can be eaten raw in salads, cooked in stir-fries or roasted in the oven. To maximize their nutritional benefits, it's recommended to choose bell peppers that are firm, shiny, and have no wrinkles or soft spots. Red, yellow, and orange bell peppers are also a good source of carotenoids, which are beneficial for eye health.</p>
+                {% elif predicted_class == 'Cherry Powdery mildew' %}
+                <p style="color: #2f2f2f;">Cherry powdery mildew is a fungal disease that affects cherry trees, caused by the pathogen Podosphaera clandestina. The disease is characterized by a powdery white or grayish coating on the leaves, fruit, and stems of cherry trees. It can lead to defoliation, reduced fruit quality and yield, and increased susceptibility to other diseases and pests. Cherry powdery mildew is favored by warm and dry weather conditions, especially in the early spring and late summer. Control measures include the use of resistant cherry varieties, pruning to improve air circulation, and fungicide applications. Cultural practices such as proper irrigation, fertilization, and orchard sanitation can also help reduce the incidence and severity of the disease.</p>
+                {% elif predicted_class == 'Cherry healthy' %}
+                <p style="color: #2f2f2f;">Cherry powdery mildew is a fungal disease that affects cherry trees, caused by the pathogen Podosphaera clandestina. The disease is characterized by a powdery white or grayish coating on the leaves, fruit, and stems of cherry trees. It can lead to defoliation, reduced fruit quality and yield, and increased susceptibility to other diseases and pests. Cherry powdery mildew is favored by warm and dry weather conditions, especially in the early spring and late summer. Control measures include the use of resistant cherry varieties, pruning to improve air circulation, and fungicide applications. Cultural practices such as proper irrigation, fertilization, and orchard sanitation can also help reduce the incidence and severity of the disease.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
