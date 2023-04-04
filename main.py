@@ -10,7 +10,6 @@ from fastapi import FastAPI, Request, Form
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
-import webbrowser
 
 
 
@@ -20,10 +19,7 @@ app.mount("/static", StaticFiles(directory="templates/static"), name="static")
 
 templates = Jinja2Templates(directory="templates")
 
-origins = [
-    "http://localhost",
-    "http://localhost:3000",
-]
+origins = ["*"]
 app.add_middleware(CORSMiddleware,
     allow_origins=origins,
     allow_credentials=True,
@@ -84,7 +80,6 @@ async def predict(request: Request, name: str = Form(...), file: UploadFile = Fi
 
 
 if __name__ == "__main__":
-    webbrowser.open('http://localhost:8000')
     uvicorn.run(app, host='localhost', port=8000)
     
 
