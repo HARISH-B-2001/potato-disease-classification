@@ -79,8 +79,7 @@ async def predict(request: Request, name: str = Form(...), file: UploadFile = Fi
         return templates.TemplateResponse("predict.html", context)
 
 
-if __name__ == "__main__":
-    uvicorn.run(app, host='localhost', port=8000)
+
     
 
 
