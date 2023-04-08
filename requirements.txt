@@ -1,4 +1,11 @@
+tensorboard==2.9.0
+tensorboard-data-server==0.6.1
+tensorboard-plugin-wit==1.8.1
 tensorflow==2.5.0
+tensorflow-addons==0.19.0
+tensorflow-estimator==2.5.0
+tensorflow-model-optimization==0.7.3
+tensorflow-serving-api==2.5.0
 fastapi==0.76.0
 uvicorn==0.20.0
 python-multipart==0.0.5
