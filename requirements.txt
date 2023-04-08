@@ -1,8 +1,0 @@
-fastapi==0.68.1
-fastapi.middleware.cors==0.12.3
-uvicorn==0.15.0
-numpy==1.21.3
-Pillow==8.4.0
-tensorflow==2.6.0
-jinja2==3.0.2
-dataclass_transform
