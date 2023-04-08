@@ -1,8 +1,9 @@
 tensorflow==2.5.0
-fastapi
-uvicorn
-python-multipart
-pillow
+fastapi==0.76.0
+uvicorn==0.20.0
+python-multipart==0.0.5
+Pillow==9.1.0
 tensorflow-serving-api==2.5.0
 matplotlib
-numpy
+typing_extensions==4.5.0
+numpy==1.19.5
