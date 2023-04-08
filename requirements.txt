@@ -7,4 +7,4 @@ tensorflow-serving-api==2.5.0
 matplotlib
 typing_extensions==4.5.0
 numpy==1.19.5
-protoc==3.19.0
+
