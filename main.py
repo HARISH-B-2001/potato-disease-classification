@@ -1,4 +1,3 @@
-from inspect import getmodule
 from fastapi import FastAPI, File, UploadFile,Form
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
@@ -8,18 +7,17 @@ from PIL import Image
 import tensorflow as tf
 from fastapi import FastAPI, Request, Form
 from fastapi.templating import Jinja2Templates
-from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
-
-
+import webbrowser
 
 app = FastAPI()
-
 app.mount("/static", StaticFiles(directory="templates/static"), name="static")
-
 templates = Jinja2Templates(directory="templates")
 
-origins = ["*"]
+origins = [
+    "http://localhost",
+    "http://localhost:3000",
+]
 app.add_middleware(CORSMiddleware,
     allow_origins=origins,
     allow_credentials=True,
@@ -49,7 +47,6 @@ def read_file_as_image(data) -> np.ndarray:
 
 @app.post("/predict")
 async def predict(request: Request, name: str = Form(...), file: UploadFile = File(...)):
-
     if (name=="potato"):
         image = read_file_as_image(await file.read())
         img_batch = np.expand_dims(image, 0)
@@ -78,8 +75,9 @@ async def predict(request: Request, name: str = Form(...), file: UploadFile = Fi
         context = {"request": request, "predicted_class": predicted_class, "confidence": confidence*100}
         return templates.TemplateResponse("predict.html", context)
 
-
-
+if __name__ == "__main__":
+    webbrowser.open('http://localhost:8000')
+    uvicorn.run(app, host='localhost', port=8000)
     
 
 
